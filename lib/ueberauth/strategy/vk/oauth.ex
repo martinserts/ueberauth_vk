@@ -17,7 +17,7 @@ defmodule Ueberauth.Strategy.VK.OAuth do
     strategy: __MODULE__,
     site: "https://api.vk.com/method",
     authorize_url: "https://oauth.vk.com/authorize",
-    token_url: "https://oauth.vk.com/access_token",
+    token_url: "https://oauth.vk.com/access_token"
   ]
 
   @doc """
@@ -35,7 +35,10 @@ defmodule Ueberauth.Strategy.VK.OAuth do
       |> Keyword.merge(config)
       |> Keyword.merge(opts)
 
+    json_library = Ueberauth.json_library()
+
     Client.new(opts)
+    |> OAuth2.Client.put_serializer("application/json", json_library)
   end
 
   @doc """
