@@ -278,7 +278,7 @@ defmodule Ueberauth.Strategy.VK do
   end
 
   defp query_params(_conn, :version) do
-    %{"v" => "5.122"}
+    %{"v" => "5.126"}
   end
 
   defp option(conn, key) do
